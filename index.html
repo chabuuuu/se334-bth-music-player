@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="light-mode">
+    <div class="container mt-5">
+        <div id="player" class="card shadow-lg">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="card-title mb-0">Music Player</h2>
+                    <button id="theme-toggle" class="btn btn-sm btn-outline-secondary">
+                        <i class="fas fa-moon"></i> <span id="theme-text">Dark Mode</span>
+                    </button>
+                </div>
+
+                <div id="album-art-container" class="text-center mb-3">
+                    <img id="album-art" src="placeholder.png" alt="Album Art" class="img-fluid rounded"
+                        style="max-height: 250px; object-fit: cover;">
+                </div>
+
+                <h5 id="current-song" class="text-center mb-3">Chọn một bài hát</h5>
+                <audio id="audio" class="w-100"></audio>
+
+                <div class="progress-container mb-3">
+                    <input type="range" id="progress" class="form-control-range custom-range" value="0" step="0.1">
+                    <div class="d-flex justify-content-between time-display">
+                        <span id="current-time">0:00</span>
+                        <span id="duration">0:00</span>
+                    </div>
+                </div>
+
+                <div class="controls text-center mb-3">
+                    <button id="prev" class="btn btn-outline-primary btn-lg"><i class="fas fa-backward"></i></button>
+                    <button id="seek-backward" class="btn btn-outline-secondary btn-lg"><i class="fas fa-undo-alt"></i>
+                        -10s</button>
+                    <button id="play-pause" class="btn btn-primary btn-lg mx-2"><i class="fas fa-play"></i></button>
+                    <button id="seek-forward" class="btn btn-outline-secondary btn-lg">+10s <i
+                            class="fas fa-redo-alt"></i></button>
+                    <button id="next" class="btn btn-outline-primary btn-lg"><i class="fas fa-forward"></i></button>
+                </div>
+
+                <div class="volume-control d-flex align-items-center justify-content-center mb-4">
+                    <i class="fas fa-volume-down mr-2"></i>
+                    <input type="range" id="volume" class="form-control-range custom-range w-50" value="100" min="0"
+                        max="100">
+                    <i class="fas fa-volume-up ml-2"></i>
+                </div>
+
+                <hr>
+
+                <div id="playlist-controls">
+                    <h4 class="mt-4">Danh sách phát</h4>
+                    <div class="input-group mb-3">
+                        <input type="text" id="song-name-input" class="form-control"
+                            placeholder="Tên bài hát (ví dụ: Song 4)">
+                        <input type="text" id="song-url-input" class="form-control"
+                            placeholder="Đường dẫn file (ví dụ: music/song4.mp3)">
+                        <div class="input-group-append">
+                            <button id="add-song-btn" class="btn btn-success"><i class="fas fa-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="file" id="song-file-input" class="form-control" accept=".mp3">
+                        <div class="input-group-append">
+                            <button id="add-song-from-file-btn" class="btn btn-info"><i class="fas fa-upload"></i> Thêm
+                                từ file</button>
+                        </div>
+                    </div>
+                </div>
+
+                <ul id="playlist" class="list-group">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
